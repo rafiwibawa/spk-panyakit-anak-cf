@@ -61,6 +61,8 @@
 
 
 @push('script')
+
+<script src="{{ url('lib/tinymce/tinymce.min.js') }}"></script>
 @include('penyakit.script')
 @include('local_storage.script')
 @include('datatables.script')

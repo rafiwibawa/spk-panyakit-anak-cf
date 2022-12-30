@@ -20,11 +20,11 @@
                 <div class="how-to ml-4">
                     <h5>Bobot Angka</h5>
                     <p>
-                        0 = Tidak Pernah <br>
-                        0.2 = Kadang-Kadang <br>
-                        0.4 = Netral <br>
-                        0.6 = Sering <br>
-                        0.8 = Hampir Selalu
+                        0 = Pasti tidak <br>
+                        0.2 = Tidak tahu <br>
+                        0.4 = Mungkin <br>
+                        0.6 = Kemungkinan besar <br>
+                        0.8 = Hampir pasti
                     </p>
                     <p class="text-danger">* Wajib</p>
                 </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <form action="{{url('/wellbeing-corporate/step-2')}}" method="POST">
+            <form action="{{url('/test')}}" method="POST">
                 @csrf
                 <div class="card custom-radius shadow mt-5" style="border: none">
                     <h5 class="mt-4 ml-3">Bagian Pertama</h5>
@@ -68,7 +68,7 @@
                                                                 <input class="form-check-input ml-1"
                                                                     type="radio"
                                                                     id="{{$question->id}}{{$i}}"
-                                                                    name="{{$question->id}}" @if ($checked) {{'checked'}} @endif
+                                                                    name="{{$question->id}}" @if ($i == 0.4) {{'checked'}} @endif
                                                                     value="{{$i}}"
                                                                     required
                                                                 />
@@ -92,16 +92,7 @@
                         <a href="{{url('/')}}" class="btn btn-secondary custom-radius px-4">Kembali</a>
                         <button class="btn btn-green custom-radius px-4" type="submit">Berikutnya</button>
                     </div>
-                </div>
-                {{-- <div class="row bs-wizard" style="border-bottom:0;">
-                    <div class="col-xs-3 bs-wizard-step complete" style="width: 100%">
-                        <div class="text-center text-dark bs-wizard-stepnum">Testing</div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <a href="#" class="bs-wizard-dot"></a>
-                    </div>
-                </div> --}}
+                </div> 
             </form>
         </div>
     </section>

@@ -14,6 +14,8 @@ class Penyakit extends Model
     protected $fillable = [
         'name', 
         'kode',
+        'img',
+        'desc',
     ];
 
     protected $hidden = [];

@@ -138,11 +138,14 @@
                 $('#form_penyakit').submit(function(event){
                     event.preventDefault();
 
-                    btn_loading('start')
+                    // btn_loading('start')
 
                     const name = $(this).find('input[name="name"]').val();
                     const kode = $(this).find('input[name="kode"]').val(); 
+                    const desc = $(this).find('textarea[name="description"]').val(); 
 
+                    // const img = document.getElementById('img').files[0];
+                    
                     const gejala = getItems('addForm__Gejala', []).map(gejala => {
                         // delete gejala.id; // client property
 
@@ -156,7 +159,9 @@
                             name,
                             kode, 
                             gejala, 
-                        },
+                            // img,
+                            desc,
+                        }, 
                         headers: {
                             Authorization: `Bearer ${getItems('token')}`,
                             Accept: 'application/json',
@@ -173,7 +178,7 @@
                         toastr.error(res.responseJSON.message, 'Gagal')
                     })
                     .always(function() {
-                        btn_loading('stop')
+                        // btn_loading('stop')
                     });
                 });
             }
@@ -190,7 +195,51 @@
         return {
             init: function(){
                 _componentPage();
-            }
+
+
+
+            // note
+            var editor_config = {
+                path_absolute : "/",
+                selector: "textarea.note-editor",
+                menubar: false,
+                statusbar: false,
+                plugins: [
+                    "table advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen",
+                    "insertdatetime media nonbreaking save table contextmenu directionality",
+                    "emoticons template paste textcolor colorpicker textpattern"
+                ],
+                toolbar: "insertfile undo redo | styleselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | tableprops",
+                table_toolbar: "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+                relative_urls: false,
+                file_browser_callback : function(field_name, url, type, win) {
+                    var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                    var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+                    var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+
+                    if (type == 'image') {
+                        cmsURL = cmsURL + "&type=Images";
+                    } else {
+                        cmsURL = cmsURL + "&type=Files";
+                    }
+
+                    tinyMCE.activeEditor.windowManager.open({
+                        file : cmsURL,
+                        title : 'File Manager',
+                        width : x * 0.8,
+                        height : y * 0.8,
+                        resizable : "yes",
+                        close_previous : "no"
+                    });
+                }
+            };
+
+            tinymce.init(editor_config);
+        } 
+
+            
         }
 
     }();

@@ -20,6 +20,7 @@
   <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
   @include('layouts.style')
+  @stack('style')
 
   <style>
    #toast-container > .toast-error { background-color: #BD362F; }

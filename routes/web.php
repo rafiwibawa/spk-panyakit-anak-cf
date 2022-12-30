@@ -45,14 +45,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/penyakit/validate-gejala',  [PenyakitController::class, 'validate_gejala']);
     Route::get('/penyakit/add-from/select2-gejala',  [PenyakitController::class, 'select2_gejala']);
 
+    Route::prefix('/test')->group(function () {
+        Route::get('/', [TestController::class, 'step_one']);
+        Route::post('/', [TestController::class, 'post_step_one']); 
+
+        Route::get('/detail/{id}', [TestController::class, 'detail']);
+    }); 
+
     Route::get('/logout',  [LoginController::class, 'logout'])->name('logout');
 });
-
-Route::prefix('/test')->group(function () {
-
-    Route::get('/', [TestController::class, 'step_one']);
-    Route::post('/', [TestController::class, 'post_step_one']);
- 
-    Route::get('download', [TestController::class, 'download']);
-    Route::get('step-finish', [TestController::class, 'step_finish']);
-}); 

@@ -12,10 +12,23 @@
                         <input type="text" name="name" parsley-trigger="change" required
                             placeholder="Nama" class="form-control">
                     </div>  
+
                     <div class="form-group">
                         <label>Kode<span class="text-danger">*</span></label>
                         <input type="text" name="kode" parsley-trigger="change" required
                             placeholder="Kode" class="form-control">
+                    </div> 
+
+                    {{-- <div class="form-group">
+                        <label>Image<span class="text-danger">*</span></label>
+                        <input type="file" name="image" id="img" parsley-trigger="change" required
+                            placeholder="Image" class="form-control"> --}}
+                    {{-- </div>  --}}
+
+                    <div class="form-group">
+                        <label>Description<span class="text-danger">*</span></label>
+                        <textarea type="text" name="description"  
+                            class="form-control note-editor"></textarea>
                     </div> 
 
                     @component('penyakit.gejala.component', [

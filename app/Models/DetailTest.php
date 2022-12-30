@@ -9,7 +9,7 @@ class DetailTest extends Model
 {
     use HasFactory;
 
-    protected $table = 'detail_test';
+    protected $table = 'test_detail';
 
     protected $fillable = [
         'test_id', 

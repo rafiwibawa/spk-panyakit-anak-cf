@@ -48,7 +48,7 @@ class PenyakitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
+    {   
         date_default_timezone_set("Asia/Jakarta");
 
         DB::beginTransaction();
@@ -57,6 +57,7 @@ class PenyakitController extends Controller
             $result = Penyakit::create([
                 'name' => $request->name, 
                 'kode' => $request->kode, 
+                'desc' => $request->desc, 
             ]);
 
             // insert detail_penyakit
