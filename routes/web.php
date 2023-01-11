@@ -7,6 +7,7 @@ use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\GejalaController;
 use \App\Http\Controllers\PenyakitController;
+use \App\Http\Controllers\HasilController;
 use \App\Http\Controllers\Main\TestController;
 
 /*
@@ -46,11 +47,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/penyakit/add-from/select2-gejala',  [PenyakitController::class, 'select2_gejala']);
 
     Route::prefix('/test')->group(function () {
-        Route::get('/', [TestController::class, 'step_one']);
+        Route::get('/', [TestController::class, 'step_one'])->name('test');
         Route::post('/', [TestController::class, 'post_step_one']); 
 
         Route::get('/detail/{id}', [TestController::class, 'detail']);
     }); 
+
+    Route::post('/hasil/dt',  [HasilController::class, 'dt']);
+    Route::resource('/hasil',  HasilController::class);
 
     Route::get('/logout',  [LoginController::class, 'logout'])->name('logout');
 });

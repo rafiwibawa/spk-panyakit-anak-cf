@@ -23,12 +23,7 @@
     @yield('content')
 
     <footer class="container">
-        <div class="text-center py-4">
-            <div class="">
-                <a href="https://rumahremedi.com" class="mb-4">
-                    <img src="{{ asset('images/logo.png') }}" height="50"/>
-                </a>
-            </div>
+        <div class="text-center py-4"> 
             <p class="text-muted">Powered by Rizal 2022</p>
         </div>
     </footer>

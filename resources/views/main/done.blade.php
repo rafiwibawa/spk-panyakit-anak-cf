@@ -39,12 +39,7 @@
                                             src=" {{asset("img/list.png")}}"
                                         @endif>
                                     </div>
-                                    <h3 class="fs-2">{{$hasil[$i]['name']}} {{$hasil[$i]['nilai']}}%</h3>
-                                    {{-- @if ($hasil[$i]['desc'])
-                                        <p>{!! substr($hasil[$i]['desc'], 0, 50)!!}</p>
-                                    @else
-                                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                                    @endif --}}
+                                    <h3 class="fs-2">{{$hasil[$i]['name']}} {{$hasil[$i]['nilai']}}%</h3> 
                                     <a href="/test/detail/{{$hasil[$i]['id']}}" class="btn btn-block" style="background-color: #32c4c1; color: white">
                                         Detail
                                     </a>

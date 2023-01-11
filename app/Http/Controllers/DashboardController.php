@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Gejala;
+use App\Models\Penyakit;
+use App\Models\Test;
 
 use DataTables;
 use Auth;
@@ -23,6 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $data['admin'] = User::where('rule','admin')->count();
+        $data['member'] = User::where('rule','member')->count();
+        $data['gejala'] = Gejala::count();
+        $data['penyakit'] = Penyakit::count();
+        $data['test'] = Test::count();
+        return view('dashboard.index', compact('data'));
     }
 }

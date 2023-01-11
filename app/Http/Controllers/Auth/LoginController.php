@@ -38,7 +38,12 @@ class LoginController extends Controller
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
 
-                return redirect()->route('home');
+                dd($user->rule);
+                if ($user->rule == 'admin') {
+                    return redirect()->route('home');
+                }else{
+                    return redirect()->route('test');
+                }
             }
 
             return back()->withErrors([
@@ -91,8 +96,12 @@ class LoginController extends Controller
             Auth::login($user);
 
             $request->session()->regenerate();
- 
-            return redirect()->route('home'); 
+  
+            if ($user->rule == 'admin') {
+                return redirect()->route('home');
+            }else{
+                return redirect()->route('test');
+            } 
         } catch (Exception $e) {
             return response([
                 "status" => 400,
@@ -122,8 +131,12 @@ class LoginController extends Controller
             Auth::login($user);
 
             $request->session()->regenerate();
-
-            return redirect()->route('home'); 
+ 
+            if ($user->rule == 'admin') {
+                return redirect()->route('home');
+            }else{
+                return redirect()->route('test');
+            }
         } catch (Exception $e) {
             return response([
                 "status" => 400,

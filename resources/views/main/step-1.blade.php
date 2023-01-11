@@ -68,7 +68,7 @@
                                                                 <input class="form-check-input ml-1"
                                                                     type="radio"
                                                                     id="{{$question->id}}{{$i}}"
-                                                                    name="{{$question->id}}" @if ($i == 0.4) {{'checked'}} @endif
+                                                                    name="{{$question->id}}"
                                                                     value="{{$i}}"
                                                                     required
                                                                 />
@@ -78,7 +78,7 @@
                                                 </div>
                                             </td>
                                             <td class="pl-2 text-muted">
-                                                Hampir Selalu
+                                                Hampir Pasti
                                             </td>
                                         </tr>
                                     </table>
