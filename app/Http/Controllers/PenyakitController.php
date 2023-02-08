@@ -40,13 +40,7 @@ class PenyakitController extends Controller
 
         return DataTables::of($data)->addIndexColumn()->make(true);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {   
         date_default_timezone_set("Asia/Jakarta");
@@ -83,14 +77,7 @@ class PenyakitController extends Controller
                 "message"   => 'Successfully added'
             ], 200);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, $id)
     {
 

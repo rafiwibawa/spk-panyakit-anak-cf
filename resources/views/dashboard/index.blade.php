@@ -96,6 +96,130 @@
         </div>
     </div>
 
+</div>
+<div class="row"> 
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div id="chart1"></div>
+    </div>
 
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div id="chart2"></div>
+    </div>
 </div>
 @endsection
+
+
+@push('script')
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script>
+
+    Highcharts.chart('chart1', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Jumlah Pengunjung'
+        },
+        subtitle: {
+            // text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Jumlah'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y} Orang</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Pengunjung', 
+            data: {!!Json_encode($data['jumlah_pengunjung'])!!}
+
+        }]
+    });
+
+    Highcharts.chart('chart2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Jumlah Test Penyakit Anak'
+        },
+        subtitle: {
+            // text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Jumlah'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y} Orang</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Test Penyakit Anak', 
+            data: {!!Json_encode($data['jumlah_test'])!!}
+
+        }]
+    });</script>
+@endpush

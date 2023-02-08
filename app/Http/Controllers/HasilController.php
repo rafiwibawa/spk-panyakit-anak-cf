@@ -41,14 +41,8 @@ class HasilController extends Controller
             ->get();
  
         return DataTables::of($data)->addIndexColumn()->make(true);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    } 
+    
     public function store(Request $request)
     {   
         date_default_timezone_set("Asia/Jakarta");

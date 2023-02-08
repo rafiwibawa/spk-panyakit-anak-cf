@@ -40,14 +40,8 @@ class UserController extends Controller
             ->get();
 
         return DataTables::of($data)->addIndexColumn()->make(true);
-    }
+    } 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         try {
@@ -91,15 +85,8 @@ class UserController extends Controller
                 "message"=> $e->getMessage(),
             ]);
         }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    } 
+    
     public function update(Request $request, $id)
     {
 

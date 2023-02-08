@@ -24,8 +24,9 @@
                         src=" {{asset("img/list.png")}}" @endif>
                 </div>
                 <h3 class="fs-2">{{$hasil[$i]['name']}} {{$hasil[$i]['nilai']}}%</h3>
-                <a href="/test/detail/{{$hasil[$i]['id']}}" class="btn btn-block"
-                    style="background-color: #32c4c1; color: white">
+                
+                <a href="/test/detail/{{$hasil[$i]['id']}}" class="btn"
+                    style="background-color: #32c4c1; color: white; width: 100%; height: auto;">
                     Detail
                 </a>
             </div>

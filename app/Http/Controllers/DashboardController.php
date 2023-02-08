@@ -26,11 +26,29 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $data['user'] = User::count();
         $data['admin'] = User::where('rule','admin')->count();
         $data['member'] = User::where('rule','member')->count();
         $data['gejala'] = Gejala::count();
         $data['penyakit'] = Penyakit::count();
         $data['test'] = Test::count();
+ 
+        $bulan = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);  
+        $data['jumlah_pengunjung'] = [];
+        for ($i=0; $i < 12 ; $i++) {  
+            $total = User::where('rule','member')->whereMonth('created_at',$bulan[$i])->count();  
+            
+            array_push($data['jumlah_pengunjung'],$total);
+        }  
+        
+        $data['jumlah_test'] = [];
+        for ($i=0; $i < 12 ; $i++) {  
+            $total = Test::whereMonth('created_at',$bulan[$i])->count();  
+            
+            array_push($data['jumlah_test'],$total);
+        }    
+
+
         return view('dashboard.index', compact('data'));
     }
 }

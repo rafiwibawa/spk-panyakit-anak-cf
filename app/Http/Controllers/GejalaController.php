@@ -37,13 +37,7 @@ class GejalaController extends Controller
 
         return DataTables::of($data)->addIndexColumn()->make(true);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         try {

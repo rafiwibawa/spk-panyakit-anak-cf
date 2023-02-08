@@ -22,19 +22,16 @@
     <!-- Outer Row -->
     <div class="row justify-content-center" style="margin-top: 6%">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-8 col-lg-12 col-md-9">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block" style="margin-top: 11%">
-                <img src="/img/profile.jpg" width="510px" height="auto">
-              </div>
-              <div class="col-lg-6">
+            <div class="row"> 
+              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Hi, Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Login Admin</h1>
                   </div>
                   <form action="{{url('login')}}" method="POST">
                     @csrf
@@ -48,13 +45,17 @@
                         </div>
                     @endif
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
                     </div>
                     <hr> 
                     <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    <hr>
+                    <div class="text-left">
+                      <a class="small" href="forgot-password">Forgot Password?</a>
+                    </div> 
                     <hr>
                     <a href="/sosmed/google" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
@@ -65,9 +66,6 @@
                   
                   </form>
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgot-password">Forgot Password?</a>
-                  </div> 
                 </div>
               </div>
             </div>

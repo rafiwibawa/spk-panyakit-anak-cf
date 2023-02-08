@@ -23,10 +23,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
+                {{-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Tugas Akhir</div>
+                </div> --}}
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
             
             <!-- Divider -->
@@ -73,18 +73,18 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Aksi
+                Laporan
             </div>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="/test">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Test</span></a>
-            </li>
+            </li> --}}
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="/hasil">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Hasil</span></a>
+                    <span>Participant</span></a>
             </li>
 
             <!-- Divider -->
